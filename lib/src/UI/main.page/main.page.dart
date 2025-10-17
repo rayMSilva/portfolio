@@ -4,6 +4,7 @@ import 'package:my_portfolio/src/UI/main.page/widgets/content.mobile.dart';
 import 'package:my_portfolio/src/UI/main.page/widgets/header.desktop.dart';
 import 'package:my_portfolio/src/UI/main.page/widgets/header.mobile.dart';
 import 'package:my_portfolio/src/UI/main.page/widgets/header.mobile.drawer.dart';
+import 'package:my_portfolio/src/UI/skills/skills.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
 
 class MainPage extends StatelessWidget {
@@ -18,7 +19,7 @@ class MainPage extends StatelessWidget {
       endDrawer: HeaderMobileDrawer(),
       body: ListView(
         children: MediaQuery.of(context).size.width > 750
-            ? [HearderDesktop(onTap: () {}), ContentDesktop(),Container(height: 500,)]
+            ? [HearderDesktop(onTap: () {}), ContentDesktop(), Skills()]
             : [
                 HeaderMobile(
                   onTap: () {},
@@ -26,10 +27,9 @@ class MainPage extends StatelessWidget {
                     scaffoldKey.currentState?.openEndDrawer();
                   },
                 ),
-                ContentMobile(), Container(height: 500,)
+                ContentMobile(),
+                Skills(),
               ],
-        //todo implementar about me
-        //todo implementar skills
         //todo implentar projects
         //todo implementar contacts
       ),

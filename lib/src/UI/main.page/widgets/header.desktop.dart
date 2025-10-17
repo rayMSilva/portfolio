@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/constants/btn.dart';
+import 'package:my_portfolio/src/data/model/button.model.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
 import 'package:my_portfolio/src/constants/headerDeco.dart';
 import 'package:my_portfolio/src/data/controllers/main.page.controller.dart';
