@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/constants/headerDeco.dart';
-import 'package:my_portfolio/src/data/controllers/main.page.controller.dart';
+import 'package:my_portfolio/src/constants/header.decoration.dart';
+import 'package:my_portfolio/src/data/controllers/header.controller.dart';
 import 'package:my_portfolio/src/widgets/site.logo.dart';
 
 class HeaderMobile extends StatelessWidget {
   HeaderMobile({super.key, required this.onTap, required this.onTapMenu});
-  final AboutMeController controller = AboutMeController();
+  final HeaderController controller = HeaderController();
   final VoidCallback? onTap;
   final VoidCallback? onTapMenu;
 

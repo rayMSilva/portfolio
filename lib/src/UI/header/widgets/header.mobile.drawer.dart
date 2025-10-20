@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/src/data/model/button.model.dart';
+import 'package:my_portfolio/src/data/model/header.button.model.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
-import 'package:my_portfolio/src/data/controllers/main.page.controller.dart';
+import 'package:my_portfolio/src/data/controllers/header.controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
   HeaderMobileDrawer({super.key});
-  final AboutMeController controller = AboutMeController();
+  final HeaderController controller = HeaderController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HeaderMobileDrawer extends StatelessWidget {
               ),
             ),
           ),
-          for (CustomButtom listTile in controller.headerButtons)
+          for (HeaderButtomModel listTile in controller.headerButtons)
             ListTile(
               titleTextStyle: TextStyle(color: CustomColor.whitePrimary, fontWeight: FontWeight.w600, fontSize: 16),
               onTap: () {},

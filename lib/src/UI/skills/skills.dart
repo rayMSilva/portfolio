@@ -14,7 +14,7 @@ class Skills extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       color: CustomColor.bgLightk,
       width: MediaQuery.of(context).size.width,
-      child: MediaQuery.of(context).size.width > 750 ? ContentSkillsDesktop() : ContentSkillsMobile(),
+      child: MediaQuery.of(context).size.width > 760 ? ContentSkillsDesktop() : ContentSkillsMobile(),
     );
   }
 }
