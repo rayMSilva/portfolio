@@ -3,9 +3,11 @@ import 'package:my_portfolio/src/UI/contact/widgets/contact.desktop.dart';
 import 'package:my_portfolio/src/UI/contact/widgets/contact.mobile.dart';
 import 'package:my_portfolio/src/UI/contact/widgets/custom.text.field.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
+import 'package:my_portfolio/src/data/controllers/contact.controller.dart';
 
 class Contact extends StatelessWidget {
-  const Contact({super.key});
+  Contact({super.key});
+  final ContactController _controller = ContactController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class Contact extends StatelessWidget {
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 700),
             child: CustomTextField(
-              controller: TextEditingController(),
+              controller: _controller.textController,
               maxline: 20,
               hintText: 'Your Text',
             ),
@@ -49,7 +51,9 @@ class Contact extends StatelessWidget {
             child: SizedBox(
               width: double.maxFinite,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _controller.sendEmail();
+                },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(CustomColor.yellowPrimary),
                 ),

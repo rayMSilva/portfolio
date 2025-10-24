@@ -20,12 +20,16 @@ class ContentDesktop extends StatelessWidget {
                 "Hello\nI'm Ray Michel\nA flutter Developer",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: CustomColor.whitePrimary),
               ),
-              const SizedBox(height: 15,),
+              const SizedBox(
+                height: 15,
+              ),
               SizedBox(
                 width: 250,
                 child: ElevatedButton(
                   onPressed: () {},
-                  style: ButtonStyle(backgroundColor: WidgetStateProperty.all(CustomColor.yellowPrimary), ),
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.all(CustomColor.yellowPrimary),
+                  ),
                   child: Text("Get in touch", style: TextStyle(color: CustomColor.whitePrimary)),
                 ),
               ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/src/UI/contact/widgets/custom.text.field.dart';
+import 'package:my_portfolio/src/data/controllers/contact.controller.dart';
 
 class ContactDesktop extends StatelessWidget {
-  const ContactDesktop({super.key});
+  ContactDesktop({super.key});
+  final ContactController _controller = ContactController();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class ContactDesktop extends StatelessWidget {
       children: [
         Flexible(
           child: CustomTextField(
-            controller: TextEditingController(),
+            controller: _controller.nameController,
             maxline: 1,
             hintText: 'Your Name',
           ),
@@ -21,7 +23,7 @@ class ContactDesktop extends StatelessWidget {
         ),
         Flexible(
           child: CustomTextField(
-            controller: TextEditingController(),
+            controller: _controller.emailController,
             maxline: 1,
             hintText: 'Your E-mail',
           ),
