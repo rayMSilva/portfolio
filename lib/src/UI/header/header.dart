@@ -10,6 +10,7 @@ class Header extends StatelessWidget {
     return MediaQuery.of(context).size.width > 760
         ? HearderDesktop(
             onTap: () {},
+            onNavMenuTap: (int i) {},
           )
         : HeaderMobile(
             onTap: () {},

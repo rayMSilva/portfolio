@@ -8,7 +8,7 @@ class ContentDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      height: MediaQuery.of(context).size.height / 1.2,
+      height: MediaQuery.of(context).size.height,
       constraints: BoxConstraints(minHeight: 350),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

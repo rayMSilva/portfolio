@@ -4,8 +4,9 @@ import 'package:my_portfolio/src/constants/colors.dart';
 import 'package:my_portfolio/src/data/controllers/header.controller.dart';
 
 class HeaderMobileDrawer extends StatelessWidget {
-  HeaderMobileDrawer({super.key});
+  HeaderMobileDrawer({super.key, required this.onNavItemTap});
   final HeaderController controller = HeaderController();
+  final Function(int) onNavItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class HeaderMobileDrawer extends StatelessWidget {
           for (HeaderButtomModel listTile in controller.headerButtons)
             ListTile(
               titleTextStyle: TextStyle(color: CustomColor.whitePrimary, fontWeight: FontWeight.w600, fontSize: 16),
-              onTap: () {},
+              onTap: () {
+                onNavItemTap.call(1);
+              },
               contentPadding: EdgeInsets.symmetric(horizontal: 30),
               leading: listTile.icon,
               title: Text(listTile.name!),

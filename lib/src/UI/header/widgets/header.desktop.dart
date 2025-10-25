@@ -6,8 +6,9 @@ import 'package:my_portfolio/src/data/controllers/header.controller.dart';
 import 'package:my_portfolio/src/widgets/site.logo.dart';
 
 class HearderDesktop extends StatelessWidget {
-  HearderDesktop({super.key, required this.onTap});
+  HearderDesktop({super.key, required this.onTap, required this.onNavMenuTap});
   final HeaderController controller = HeaderController();
+  final Function(int) onNavMenuTap;
   final VoidCallback? onTap;
 
   @override
@@ -25,7 +26,9 @@ class HearderDesktop extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  onNavMenuTap.call(btn.id!);
+                },
                 child: Text(
                   btn.name!,
                   maxLines: 1,

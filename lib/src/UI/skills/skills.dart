@@ -11,6 +11,7 @@ class Skills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: key,
       padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
       color: CustomColor.bgLightk,
       width: MediaQuery.of(context).size.width,

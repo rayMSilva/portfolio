@@ -8,9 +8,12 @@ import 'package:my_portfolio/src/UI/main.content/content.dart';
 import 'package:my_portfolio/src/UI/work.projects/work.projects.dart';
 import 'package:my_portfolio/src/UI/skills/skills.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
+import 'package:my_portfolio/src/data/controllers/main.page.controller.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+  MainPage({super.key});
+  final MainPageController controller = MainPageController();
+  final List<GlobalKey> navBarKeys = List.generate(4, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +21,31 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: CustomColor.scaffoldBg,
-      endDrawer: HeaderMobileDrawer(),
-      body: ListView(
-        children: [
-          Header(),
-          Content(),
-          Skills(),
-          WorkProjects(),
-          HobbyProjects(),
-          Contact(),
-          Footer(),
-        ],
+      endDrawer: HeaderMobileDrawer(
+        onNavItemTap: (int nav) {},
+      ),
+      body: SingleChildScrollView(
+        controller: controller.scrollControl,
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Header(),
+            Content(
+              key: navBarKeys.first,
+            ),
+            Skills(
+              key: navBarKeys[1],
+            ),
+            WorkProjects(
+              key: navBarKeys[2],
+            ),
+            HobbyProjects(),
+            Contact(
+              key: navBarKeys[3],
+            ),
+            Footer(),
+          ],
+        ),
       ),
     );
   }
