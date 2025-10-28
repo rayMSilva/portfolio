@@ -3,8 +3,8 @@ import 'package:my_portfolio/src/UI/contact/widgets/custom.text.field.dart';
 import 'package:my_portfolio/src/data/controllers/contact.controller.dart';
 
 class ContactMobile extends StatelessWidget {
-  ContactMobile({super.key});
-  final ContactController _controller = ContactController();
+  const ContactMobile({super.key, required this.controller});
+  final ContactController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ContactMobile extends StatelessWidget {
       children: [
         Flexible(
           child: CustomTextField(
-            controller: _controller.nameController,
+            controller: controller.nameController,
             maxline: 1,
             hintText: 'Your Name',
           ),
@@ -23,7 +23,7 @@ class ContactMobile extends StatelessWidget {
         ),
         Flexible(
           child: CustomTextField(
-            controller: _controller.emailController,
+            controller: controller.emailController,
             maxline: 1,
             hintText: 'Your E-mail',
           ),

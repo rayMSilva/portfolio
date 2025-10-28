@@ -30,7 +30,11 @@ class Contact extends StatelessWidget {
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 700, maxHeight: 100),
-            child: MediaQuery.of(context).size.width > 760 ? ContactDesktop() : ContactMobile(),
+            child: MediaQuery.of(context).size.width > 760
+                ? ContactDesktop(controller: _controller)
+                : ContactMobile(
+                    controller: _controller,
+                  ),
           ),
           const SizedBox(
             height: 15,
@@ -48,20 +52,27 @@ class Contact extends StatelessWidget {
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 700),
-            child: SizedBox(
-              width: double.maxFinite,
-              child: ElevatedButton(
-                onPressed: () {
-                  _controller.sendEmail();
-                },
-                style: ButtonStyle(
-                  backgroundColor: WidgetStateProperty.all(CustomColor.yellowPrimary),
-                ),
-                child: Text(
-                  "Get in touch",
-                  style: TextStyle(color: CustomColor.whitePrimary),
-                ),
-              ),
+            child: ValueListenableBuilder<bool>(
+              valueListenable: _controller.isLoading,
+              builder: (context, loading, _) => loading
+                  ? CircularProgressIndicator(
+                      color: CustomColor.yellowPrimary,
+                    )
+                  : SizedBox(
+                      width: double.maxFinite,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _controller.sendEmail(context);
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStateProperty.all(CustomColor.yellowPrimary),
+                        ),
+                        child: Text(
+                          "Get in touch",
+                          style: TextStyle(color: CustomColor.whitePrimary),
+                        ),
+                      ),
+                    ),
             ),
           ),
           const SizedBox(
@@ -79,37 +90,38 @@ class Contact extends StatelessWidget {
             runSpacing: 12,
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _controller.openURL(context, "https://github.com/rayMSilva");
+                },
                 child: Image.asset(
                   "lib/assets/github.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _controller.openURL(context, "https://www.linkedin.com/in/ray-michel-23ba78288/");
+                },
                 child: Image.asset(
                   "lib/assets/linkedin.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
-                child: Image.asset(
-                  "lib/assets/facebook.png",
-                  width: 28,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
+                onTap: () {
+                  _controller.openURL(context, "https://www.instagram.com/raym__silva/");
+                },
                 child: Image.asset(
                   "lib/assets/instagram.png",
                   width: 28,
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  _controller.openURL(context, "https://www.upwork.com/freelancers/~0167ef5390d18ee7f2");
+                },
                 child: Image.asset(
-                  "lib/assets/telegram.png",
+                  "lib/assets/upLogo.png",
                   width: 28,
                 ),
               ),

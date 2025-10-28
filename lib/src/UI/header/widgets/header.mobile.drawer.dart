@@ -30,7 +30,7 @@ class HeaderMobileDrawer extends StatelessWidget {
             ListTile(
               titleTextStyle: TextStyle(color: CustomColor.whitePrimary, fontWeight: FontWeight.w600, fontSize: 16),
               onTap: () {
-                onNavItemTap.call(1);
+                onNavItemTap.call(listTile.id!);
               },
               contentPadding: EdgeInsets.symmetric(horizontal: 30),
               leading: listTile.icon,
