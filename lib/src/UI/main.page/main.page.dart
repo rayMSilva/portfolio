@@ -3,9 +3,8 @@ import 'package:my_portfolio/src/UI/contact/contact.dart';
 import 'package:my_portfolio/src/UI/footer/footer.dart';
 import 'package:my_portfolio/src/UI/header/header.dart';
 import 'package:my_portfolio/src/UI/header/widgets/header.mobile.drawer.dart';
-import 'package:my_portfolio/src/UI/hobby.projects/hobby.projects.dart';
-import 'package:my_portfolio/src/UI/main.content/content.dart';
-import 'package:my_portfolio/src/UI/work.projects/work.projects.dart';
+import 'package:my_portfolio/src/UI/projects/projects.dart';
+import 'package:my_portfolio/src/UI/content/content.dart';
 import 'package:my_portfolio/src/UI/skills/skills.dart';
 import 'package:my_portfolio/src/constants/colors.dart';
 import 'package:my_portfolio/src/data/controllers/main.page.controller.dart';
@@ -54,8 +53,7 @@ class MainPage extends StatelessWidget {
             SizedBox(
               key: navBarKeys[2],
             ),
-            WorkProjects(),
-            HobbyProjects(),
+            Projects(),
             SizedBox(
               key: navBarKeys[3],
             ),

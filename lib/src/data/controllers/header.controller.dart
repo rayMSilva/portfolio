@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/src/data/controllers/projects.controller.dart';
 import 'package:my_portfolio/src/data/model/header.button.model.dart';
 
 class HeaderController {
-  final List<HeaderButtomModel> headerButtons = [
+  final ProjetcsController projectsController = ProjetcsController();
+  List<HeaderButtomModel> get headerButtons => [
     HeaderButtomModel(
       id: 0,
       name: "Home",
@@ -15,12 +17,13 @@ class HeaderController {
       icon: Icon(Icons.book),
       onPressed: () {},
     ),
-    HeaderButtomModel(
-      id: 2,
-      name: "Projects",
-      icon: Icon(Icons.code),
-      onPressed: () {},
-    ),
+    if (projectsController.hobbyProjectInfo.isNotEmpty || projectsController.workProjectInfo.isNotEmpty)
+      HeaderButtomModel(
+        id: 2,
+        name: "Projects",
+        icon: Icon(Icons.code),
+        onPressed: () {},
+      ),
     HeaderButtomModel(
       id: 3,
       name: "Contact",
